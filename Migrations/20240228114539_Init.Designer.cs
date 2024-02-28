@@ -10,8 +10,8 @@ using Mona.Context;
 namespace Mona.Migrations
 {
     [DbContext(typeof(MessageContext))]
-    [Migration("20240227124717_Initial")]
-    partial class Initial
+    [Migration("20240228114539_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,11 @@ namespace Mona.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Group")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Text")
                         .IsRequired()

@@ -1,4 +1,3 @@
-using MessagePack;
 using Mona.Context;
 using Mona.Hub;
 using Mona.Service;
@@ -35,11 +34,7 @@ services.AddCors(options =>
 });
 
 services.AddSignalR()
-    .AddMessagePackProtocol(options =>
-    {
-        options.SerializerOptions = MessagePackSerializerOptions.Standard
-            .WithSecurity(MessagePackSecurity.UntrustedData);
-    });
+    .AddMessagePackProtocol();
 services.AddControllersWithViews();
 
 

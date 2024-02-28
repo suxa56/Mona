@@ -1,9 +1,10 @@
-﻿using Mona.Dto;
+﻿using Mona.Model;
 
 namespace Mona.Service;
 
 public interface IMessageService
 { 
-    void CreateMessage(string text);
-    Task<IEnumerable<string>> GetMessages();
+    void CreateMessage(MessageItem message);
+    Task<IEnumerable<MessageItem>> GetMessages();
+    Task<IEnumerable<MessageItem>> GetMessagesByGroup(string group);
 }
